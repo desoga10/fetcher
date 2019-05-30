@@ -10,15 +10,27 @@
     <img src="" id="united" width="300" height="300" />
 
     <script>
-      fetch('dcunited2.jpg')
-        .then(response => {
-          console.log(response);
-          return response.blob();
-        })
-        .then(blob => {
-          console.log(blob);
-          document.getElementById('united').src = URL.createObjectURL(blob);
-        });
+      catchBadge().catch(error => {
+        console.log(error);
+      });
+      async function catchBadge() {
+        const response = await fetch('dcunited2.jpg');
+        const blob = await response.blob();
+        document.getElementById('united').src = URL.createObjectURL(blob);
+      }
+      // fetch('dcunited2.jpg')
+      //   .then(response => {
+      //     console.log(response);
+      //     return response.blob();
+      //   })
+      //   .then(blob => {
+      //     console.log(blob);
+      //     document.getElementById('unted').src = URL.createObjectURL(blob);
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //     console.log('error');
+      //   });
     </script>
   </body>
 </html>
